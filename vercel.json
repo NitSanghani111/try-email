@@ -1,9 +1,7 @@
 {
-  "project": {
-    "name": "your-project-name"
-  },
+  "version": 2,
   "builds": [
-    { "src": "backend/api/send-email.js", "use": "@vercel/node" }
+    { "src": "api/send-email.js", "use": "@vercel/node" }
   ],
   "functions": {
     "api/send-email.js": {
@@ -12,6 +10,6 @@
     }
   },
   "routes": [
-    { "src": "/api/(.*)", "dest": "backend/api/$1.js" }
+    { "src": "/api/(.*)", "dest": "api/$1.js" }
   ]
 }
