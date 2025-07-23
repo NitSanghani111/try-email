@@ -1,15 +1,17 @@
 {
-  "version": 2,
+  "project": {
+    "name": "your-project-name"
+  },
   "builds": [
-    {
-      "src": "api/send-email.js",
-      "use": "@vercel/node"
-    }
+    { "src": "backend/api/send-email.js", "use": "@vercel/node" }
   ],
-  "routes": [
-    {
-      "src": "/api/send-email",
-      "dest": "api/send-email.js"
+  "functions": {
+    "api/send-email.js": {
+      "memory": 128,
+      "maxDuration": 10
     }
+  },
+  "routes": [
+    { "src": "/api/(.*)", "dest": "backend/api/$1.js" }
   ]
 }
